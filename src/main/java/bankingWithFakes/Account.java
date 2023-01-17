@@ -1,7 +1,12 @@
 package bankingWithFakes;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Account {
+
+  private List<Integer> amounts = new ArrayList<>();
 
   private Reporter reporter;
 
@@ -10,6 +15,7 @@ public class Account {
   }
 
   public Account deposit(int amount) {
+    amounts.add(amount);
     return this;
   }
 
@@ -18,6 +24,6 @@ public class Account {
   }
 
   public int balance() {
-    return 100;
+    return amounts.get(0);
   }
 }

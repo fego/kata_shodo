@@ -4,16 +4,37 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class AccountTest {
 
-  @Test
-  void whenDepositIs100_thenBalanceIs100() {
+  @ParameterizedTest
+  @ValueSource(ints={50,100,200})
+  void whenDepositFirstAmount_thenBalanceIsFirstAmount(int firstAmount) {
     // Give,
     Account account = new Account(new FakeReporter());
     // When
-    account.deposit(100);
+    account.deposit(firstAmount);
     // Then
-    Assertions.assertThat(account.balance()).isEqualTo(100);
+    Assertions.assertThat(account.balance()).isEqualTo(firstAmount);
   }
+
+  @ParameterizedTest
+  @ValueSource(ints={50,100,200})
+  void whenDepositFirstAmountAndSecondAmount_thenBalanceIsFirstAmountPlusSecondAmount(int firstAmount) {
+    // Give,
+    Account account = new Account(new FakeReporter());
+    final int secondAmount = 100;
+
+    // When
+    account.deposit(firstAmount);
+    account.deposit(secondAmount);
+
+    // Then
+    Assertions.assertThat(account.balance()).isEqualTo(firstAmount + secondAmount);
+  }
+
+
+
 }
