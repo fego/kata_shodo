@@ -13,7 +13,7 @@ class BankAccountTest {
     Account account = new Account(reporter, Collections.emptyList());
 
     // When
-    Account updatedAccount = account.deposit(500).withdraw(100);
+    Account updatedAccount = account.deposit(new Amount(500)).withdraw(new Amount(100));
 
     // Then
     Assertions.assertThat(reporter.report()).isEqualTo("""
