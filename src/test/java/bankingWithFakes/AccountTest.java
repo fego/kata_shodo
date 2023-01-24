@@ -2,6 +2,7 @@ package bankingWithFakes;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Collections;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -13,7 +14,7 @@ class AccountTest {
   @ValueSource(ints={50,100,200})
   void whenDepositFirstAmount_thenBalanceIsFirstAmount(int firstAmount) {
     // Give,
-    Account account = new Account(new FakeReporter());
+    Account account = new Account(new FakeReporter(), Collections.emptyList());
     // When
     account.deposit(firstAmount);
     // Then
@@ -24,7 +25,7 @@ class AccountTest {
   @ValueSource(ints={50,100,200})
   void whenDepositFirstAmountAndSecondAmount_thenBalanceIsFirstAmountPlusSecondAmount(int firstAmount) {
     // Give,
-    Account account = new Account(new FakeReporter());
+    Account account = new Account(new FakeReporter(), Collections.emptyList());
     final int secondAmount = 100;
 
     // When

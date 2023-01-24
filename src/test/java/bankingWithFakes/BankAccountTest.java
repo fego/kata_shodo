@@ -1,5 +1,6 @@
 package bankingWithFakes;
 
+import java.util.Collections;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,7 @@ class BankAccountTest {
   void test_feature_account() {
     // Given
     FakeReporter reporter = new FakeReporter();
-    Account account = new Account(reporter);
+    Account account = new Account(reporter, Collections.emptyList());
 
     // When
     Account updatedAccount = account.deposit(500).withdraw(100);
