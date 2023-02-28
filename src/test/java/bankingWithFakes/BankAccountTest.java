@@ -10,7 +10,7 @@ class BankAccountTest {
   void test_feature_account() {
     // Given
     FakeReporter reporter = new FakeReporter();
-    Account account = new Account(reporter, Collections.emptyList());
+    Account account = new Account(reporter);
 
     // When
     Account updatedAccount = account.deposit(new Amount(500)).withdraw(new Amount(100));

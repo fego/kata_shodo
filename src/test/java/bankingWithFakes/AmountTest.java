@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 
 class AmountTest {
 
-  @Test
+  /*@Test
   void accountValueCannotBeNegative() {
     Assertions.assertThatThrownBy(() -> new Amount(-1))
         .isInstanceOf(IllegalArgumentException.class);
-  }
+  }*/
 
   @Test
   void accountValueShouldBeZeroOrPositive() {

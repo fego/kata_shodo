@@ -1,10 +1,7 @@
 package bankingWithFakes;
 
 public record Amount(int value) {
-
-  public Amount {
-    if (value < 0) {
-      throw new IllegalArgumentException("< 0");
-    }
+  public Amount negate() {
+    return new Amount(-this.value);
   }
 }
